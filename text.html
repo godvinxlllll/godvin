@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Link on Click</title>
+</head>
+<body>
+
+    <!-- The anchor tag needs a unique ID and preventDefault to stop the initial navigation -->
+    <a id="myLink" href="https://google.com" onclick="changeLink(event)">Go to Google</a>
+
+    <script>
+        function changeLink(event) {
+            // 1. Stop the browser from immediately opening the original link
+            event.preventDefault();
+
+            // 2. Select the link element using its ID
+            const linkElement = document.getElementById("myLink");
+
+            // 3. Change the visual display text
+            linkElement.textContent = "Go to Apple";
+
+            // 4. Change the destination URL (href attribute)
+            linkElement.href = "https://apple.com";
+
+            // 5. Optional: Remove the click event so the new link works normally on the next click
+            linkElement.removeAttribute("onclick");
+        }
+    </script>
+
+</body>
+</html>
